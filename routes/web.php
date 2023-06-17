@@ -24,6 +24,12 @@ Route::get('/', function () {
     ]);
 });
 
+Route::prefix('blog')->name('blog.')->group(function () {
+    Route::get('', [App\Http\Controllers\PostController::class, 'index'])->name('posts');
+    Route::resource('post', App\Http\Controllers\PostController::class)->except('index');
+});
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -5,3 +5,21 @@
 [x-cloak] {
     display: none;
 }
+
+@layer base {
+    body {
+        @apply scroll-smooth
+    }
+}
+
+.post-content {
+  @apply dark:text-white
+    prose mx-auto prose-2xl prose-indigo p-8 w-full
+
+    prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg
+    prose-headings:text-indigo-500 prose-headings:font-bold
+
+    prose-table:rounded-lg prose-table:border prose-td:p-2 prose-thead:text-red-500
+
+    prose-a:no-underline prose-a:text-indigo-400
+}

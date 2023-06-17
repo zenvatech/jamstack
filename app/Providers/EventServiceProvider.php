@@ -20,6 +20,18 @@ class EventServiceProvider extends ServiceProvider
         ],
     ];
 
+    protected $observers = [
+        \App\Models\User::class => [
+            \App\Observers\UserObserver::class
+        ],
+        \App\Models\Category::class => [
+            \App\Observers\CategoryObserver::class
+        ],
+        \App\Models\Post::class => [
+            \App\Observers\PostObserver::class
+        ],
+    ];
+
     /**
      * Register any events for your application.
      */
