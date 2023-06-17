@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -27,6 +28,18 @@ Route::get('/', function () {
 Route::prefix('blog')->name('blog.')->group(function () {
     Route::get('', [App\Http\Controllers\PostController::class, 'index'])->name('posts');
     Route::resource('post', App\Http\Controllers\PostController::class)->except('index');
+});
+
+
+Route::prefix('test')->group(function () {
+    Route::get('mail', function () {
+
+        dump(
+            Mail::raw('Hello World!', function ($msg) {
+                $msg->to('mundestephane13@gmail.com')->subject('Test Email');
+            })
+        );
+    });
 });
 
 

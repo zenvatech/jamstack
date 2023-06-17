@@ -54,7 +54,7 @@
 
                             <TextInput
                                 id="name"
-                                v-model="form.title"
+                                v-model="form.excerpt"
                                 type="text"
                                 class="mt-1 block w-full"
                                 :disabled="!canEditPost"

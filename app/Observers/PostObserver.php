@@ -11,7 +11,7 @@ class PostObserver
      */
     public function creating(Post $post): void
     {
-        $post->slug = str($post->title)->slug()->toString();
+        $post->slug ??= str($post->title)->slug()->toString();
     }
 
     /**
@@ -20,6 +20,14 @@ class PostObserver
     public function created(Post $post): void
     {
         //
+    }
+
+    /**
+     * Handle the Post "updating" event.
+     */
+    public function updating(Post $post): void
+    {
+        $post->slug = str($post->title)->slug()->toString();
     }
 
     /**
