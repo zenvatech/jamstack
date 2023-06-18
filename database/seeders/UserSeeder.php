@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create(['email' => 'admin@jamstack.test', 'password' => '!password']);
+        User::factory()->create(['email' => 'admin@jamstack.test', 'password' => '!password', 'email_verified_at' => now()]);
 
         User::factory(70)->create();
     }

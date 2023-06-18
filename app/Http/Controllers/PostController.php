@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate()->withQueryString();
+        $posts = Post::filter()->paginate()->withQueryString();
         $categories = Category::orderBy('name', 'asc')->get();
 
         return inertia('posts.index', compact('posts', 'categories'));

@@ -39,7 +39,8 @@ class PostFactory extends Factory
             'user_id' => null,
             'excerpt' => str($title)->limit(50)->toString(),
             'slug' => str($title)->slug()->toString(),
-            'body' => $this->faker->markdown()
+            'body' => $this->faker->markdown(),
+            'created_at' => $this->faker->dateTimeBetween('-14 days', 'now')
         ];
     }
 }
